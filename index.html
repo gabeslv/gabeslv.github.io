@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Silva de Abreu | Portfólio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+        
+        :root[data-theme="light"] {
+            --bg-color: #FDFBF7;
+            --text-color: #2B2118;
+            --accent-color: #C05A3C;
+            --border-color: #2B2118;
+            --card-bg: #FFFFFF;
+        }
+
+        :root[data-theme="dark"] {
+            --bg-color: #1A1614;
+            --text-color: #F2EBE5;
+            --accent-color: #D97355;
+            --border-color: #F2EBE5;
+            --card-bg: #2B2118;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-color);
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            border-bottom: 2px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 0.4rem 0.8rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        
+        .theme-toggle:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 2px dashed var(--border-color);
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            border-bottom: 4px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        #sobre {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            padding-top: 8rem;
+        }
+
+        .profile-img-container {
+            border: 2px solid var(--border-color);
+            padding: 1rem;
+            background-color: var(--card-bg);
+            box-shadow: 15px 15px 0px var(--text-color);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(20%);
+        }
+
+        .bio h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .bio p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            max-width: 600px;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            border: 2px solid var(--border-color);
+            background-color: var(--card-bg);
+            padding: 2rem;
+            box-shadow: 8px 8px 0px var(--text-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px var(--accent-color);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .card ul {
+            list-style-type: square;
+            padding-left: 1.2rem;
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .list-item {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .list-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .list-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .list-item .meta {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .list-item p {
+            font-size: 1.1rem;
+            max-width: 800px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 2px solid var(--border-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            #sobre {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding-top: 4rem;
+            }
+
+            .bio h1 {
+                font-size: 2.5rem;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#" class="logo">G.Abreu</a>
+        <nav>
+            <a href="#sobre">Sobre Mim</a>
+            <a href="#conhecimentos">Conhecimentos</a>
+            <a href="#experiencia">Experiência</a>
+            <a href="#educacao">Educação</a>
+            <a href="#projetos">Projetos</a>
+            <button class="theme-toggle" onclick="toggleTheme()">☀ / ☾ Tema</button>
+        </nav>
+    </header>
+
+    <section id="sobre">
+        <div class="profile-img-container">
+            <img src="WhatsApp Image 2026-09-28 at 19.45.54.jpeg" alt="Gabriel Silva de Abreu" class="profile-img">
+        </div>
+        <div class="bio">
+            <h1>Olá, sou o <br>Gabriel Silva de Abreu.</h1>
+            <p>Estudante de <span class="highlight">Engenharia da Computação</span> (UFAM) e <span class="highlight">Análise e Desenvolvimento de Sistemas</span> (Fametro).</p>
+            <p>Tenho experiência acadêmica e prática em desenvolvimento de software e análise de dados, com foco em criar soluções robustas e sistemas integrados.</p>
+        </div>
+    </section>
+
+    <section id="conhecimentos">
+        <h2 class="section-title">Conhecimentos</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Linguagens</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>C</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Frameworks & Web</h3>
+                <ul>
+                    <li>React</li>
+                    <li>Django</li>
+                    <li>FastAPI</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Dados & BI</h3>
+                <ul>
+                    <li>SQL (PostgreSQL, BigQuery)</li>
+                    <li>Power BI</li>
+                    <li>Data Studio</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Ferramentas & Métodos</h3>
+                <ul>
+                    <li>Git & GitHub</li>
+                    <li>Linux</li>
+                    <li>Scrum & Kanban</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia">
+        <h2 class="section-title">Experiência</h2>
+        
+        <div class="list-item">
+            <h3>Estágio em Análise de Dados</h3>
+            <div class="meta">Grupo Sou | Janeiro 2026 - Junho 2026</div>
+            <p>Apoio na coleta, tratamento e análise de dados, com desenvolvimento de dashboards interativos no Power BI. Criação de consultas SQL para extração e manipulação de dados em bancos relacionais. Modelagem de dados, elaboração de métricas (KPIs) e construção de relatórios gerenciais para suporte à tomada de decisão.</p>
+        </div>
+
+        <div class="list-item">
+            <h3>Iniciação Científica - SUPER</h3>
+            <div class="meta">Universidade Federal do Amazonas (UFAM) | Abril 2023 - Abril 2024</div>
+            <p>Desenvolvimento de software em Java utilizando orientação a objetos. Aplicação de algoritmos e estruturas de dados. Organização, testes e manutenção de código.</p>
+        </div>
+    </section>
+
+    <section id="educacao">
+        <h2 class="section-title">Educação</h2>
+        
+        <div class="list-item">
+            <h3>Engenharia da Computação</h3>
+            <div class="meta">Universidade Federal do Amazonas (UFAM) | 2022 - 2028</div>
+        </div>
+
+        <div class="list-item">
+            <h3>Análise e Desenvolvimento de Sistemas</h3>
+            <div class="meta">Faculdade Metropolitana de Manaus (Fametro) | 2025 - 2026</div>
+        </div>
+
+        <h2 class="section-title" style="margin-top: 4rem; font-size: 2rem;">Cursos Extras</h2>
+        
+        <div class="list-item">
+            <h3>Capacitação em Inovação para Indústria 4.0</h3>
+            <div class="meta">INDT | Maio 2025</div>
+            <p>Desenvolvimento de aplicações utilizando Arduino e linguagem C. Introdução a sistemas embarcados e integração entre hardware e software. Contato com ambientes Linux e ferramentas de desenvolvimento.</p>
+        </div>
+    </section>
+
+    <section id="projetos">
+        <h2 class="section-title">Projetos</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Monitoramento Embarcado com Arduino</h3>
+                <p><strong>INDT (Maio 2025)</strong></p>
+                <br>
+                <p>Desenvolvimento de um sistema embarcado utilizando Arduino e linguagem C para monitoramento de sensores em tempo real. Implementação de leitura e processamento de dados via comunicação sem fio, com integração entre hardware e software. Testes e depuração em ambiente Linux.</p>
+            </div>
+            <div class="card">
+                <h3>RotaCalma</h3>
+                <p><strong>Projeto Acadêmico (Maio 2025)</strong></p>
+                <br>
+                <p>Conceito de uma aplicação móvel focada na navegação de rotas acessíveis e tranquilas, desenvolvida durante estudos de Engenharia de Requisitos.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Gabriel Silva de Abreu. Código limpo.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+        }
+
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
