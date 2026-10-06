@@ -158,6 +158,30 @@
             font-weight: bold;
         }
 
+        .contact-links {
+            margin-top: 2.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            padding: 0.6rem 1.2rem;
+            border: 2px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            background-color: var(--card-bg);
+            box-shadow: 4px 4px 0px var(--text-color);
+        }
+
+        .contact-links a:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--accent-color);
+            color: var(--accent-color);
+        }
+
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -276,12 +300,18 @@
 
     <section id="sobre">
         <div class="profile-img-container">
-            <img src="foto-gabriel.jpeg" alt="Gabriel Silva de Abreu" class="profile-img">
+            <img src="foto.jpeg" alt="Gabriel Silva de Abreu" class="profile-img">
         </div>
         <div class="bio">
             <h1>Olá, sou o <br>Gabriel Silva de Abreu.</h1>
             <p>Estudante de <span class="highlight">Engenharia da Computação</span> (UFAM) e <span class="highlight">Análise e Desenvolvimento de Sistemas</span> (Fametro).</p>
             <p>Tenho experiência acadêmica e prática em desenvolvimento de software e análise de dados, com foco em criar soluções robustas e sistemas integrados.</p>
+            
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/gabriel-slv" target="_blank">LinkedIn</a>
+                <a href="mailto:abreugabriel134@gmail.com">abreugabriel134@gmail.com</a>
+                <a href="https://wa.me/5592994587417" target="_blank">+55 92 99458-7417</a>
+            </div>
         </div>
     </section>
 
@@ -382,7 +412,7 @@
     </section>
 
     <footer>
-        <p>© 2026 Gabriel Silva de Abreu.</p>
+        <p>© 2026 Gabriel Silva de Abreu. Código limpo.</p>
     </footer>
 
     <script>
